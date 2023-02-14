@@ -12,7 +12,7 @@ export default function Button({
   size = "md",
 }: {
   children: React.ReactNode;
-  onClick?: () => {};
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   variant?: Variant;
   size?: Size;
 }) {
