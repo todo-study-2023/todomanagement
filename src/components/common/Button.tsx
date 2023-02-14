@@ -1,12 +1,14 @@
+//메모이제이션 (usememo) switch case 구문으로
+
 import React from "react";
 
-type Variant = "outlined" | "fill" | "ghost";
+type Variant = "outlined" | "contained" | "text";
 type Size = "xs" | "sm" | "md" | "lg";
 
 export default function Button({
   children,
   onClick,
-  variant = "fill",
+  variant = "contained",
   size = "md",
 }: {
   children: React.ReactNode;
@@ -15,26 +17,16 @@ export default function Button({
   size?: Size;
 }) {
   const getVariantStyle = (variant: Variant) => {
-    if (variant === "outlined") {
-      return "btn-outlined";
-    } else if (variant === "fill") {
-      return "btn-primary";
-    } else if (variant === "ghost") {
-      return "btn-ghost";
-    }
+    const styleObj = {
+      outlined: "btn-outlined",
+      contained: "btn-primary",
+      text: "btn-text",
+    };
+    const styleMap = new Map(Object.entries(styleObj));
+    return styleMap.get(variant);
   };
 
-  const getSizeStyle = (size: Size) => {
-    if (size === "xs") {
-      return "btn-xs";
-    } else if (size === "sm") {
-      return "btn-sm";
-    } else if (size === "md") {
-      return "btn-md";
-    } else if (size === "lg") {
-      return "btn-lg";
-    }
-  };
+  const getSizeStyle = (size: Size) => `btn-${size}`;
 
   return (
     <button
