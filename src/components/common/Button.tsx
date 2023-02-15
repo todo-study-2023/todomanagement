@@ -3,7 +3,6 @@
 import React, { useMemo } from "react";
 
 type Variant = "outlined" | "contained" | "text";
-type Size = "xs" | "sm" | "md" | "lg";
 
 export default function Button({
   children,
