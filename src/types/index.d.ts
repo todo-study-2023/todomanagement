@@ -1,15 +1,15 @@
 type Size = "xs" | "sm" | "md" | "lg";
+
 type Color =
-  | "black"
-  | "dark"
   | "primary"
-  | "secondary"
-  | "tertiary"
-  | "border"
-  | "background"
-  | "white"
+  | "primary-light"
   | "blue"
-  | "blue-dark"
-  | "blue-light"
+  | "black"
+  | "background"
+  | "gray"
+  | "gray-dark"
+  | "line"
+  | "line-light"
+  | "white"
   | "red"
-  | "green";
+  | "red-light";
