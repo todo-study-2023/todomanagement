@@ -13,4 +13,10 @@
 @import "./styles/modules/button";
 @import "./styles/modules/text";
 
+@import "./views/room/room";
+
 @import "./styles/layouts/grids";
+
+*{
+    background-color: $background;
+}
