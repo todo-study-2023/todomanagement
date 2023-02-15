@@ -43,6 +43,13 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
   width: 100%;
   padding: 0 $sm-margin;
   margin: 0 auto;
+  
+  .grid {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2fr 3fr 5fr;
+    grid-template-rows: 1.5fr 4.25fr 4.25fr;
+  }
 
   .row {
     display: flex;
