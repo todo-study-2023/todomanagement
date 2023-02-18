@@ -1,6 +1,5 @@
 //TODO: 퍼블리싱 후 전체적인 font-weight 확인 후 변경 필요
 
-
 @mixin text-style-14() {
   font-size: $font-size-14;
   line-height: $line-height-14;
@@ -31,8 +30,7 @@
   letter-spacing: $letter-spacing-40;
 }
 
-@mixin text-style($size) {
-
+@mixin text-style($size, $color: false) {
   @if ($size ==14) {
     @include text-style-14();
   }
@@ -47,6 +45,9 @@
   }
   @if ($size ==40) {
     @include text-style-40();
+  }
+  @if (type-of($color) == color) {
+    color: $color;
   }
 }
 
