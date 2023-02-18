@@ -85,3 +85,50 @@
     }
   }
 }
+
+.todo {
+  padding: 20px;
+
+  .todo-title {
+    @include flexbox(start);
+
+    .blue-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $blue;
+    }
+  }
+
+  .todo-content-layout-container {
+    height: 100%;
+    @include column-flexbox(between, start);
+
+    .todo-content-container {
+      @include flexbox(between);
+      background-color: $grayDark;
+      margin-top: 20px;
+      padding: 26px 30px;
+      border-radius: 8px;
+      width: 100%;
+
+      .todo-content-wrapper {
+        @include flexbox(start);
+      }
+
+      .todo-icon-wrapper {
+        @include flexbox(start);
+        gap: 5px;
+      }
+    }
+
+    .add-todo-container {
+      @include flexbox(start);
+      background-color: $grayDark;
+      margin: 20px 0;
+      padding: 14px 30px;
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}
