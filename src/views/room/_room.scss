@@ -17,6 +17,10 @@
   &:nth-child(6) {
     grid-row: 2/4;
   }
+  .item-title {
+    @include flexbox(start);
+    // margin: 20px;
+  }
 }
 
 .study-info {
@@ -38,10 +42,6 @@
   background-color: $grayDark;
   padding: 20px;
 
-  .item-title {
-    @include flexbox(start);
-    // margin: 20px;
-  }
   .member-container {
     overflow: auto;
     height: 300px;
@@ -58,6 +58,30 @@
           margin-bottom: 8px;
         }
       }
+    }
+  }
+}
+
+.fine {
+  background-color: $grayDark;
+  padding: 20px;
+
+  .fine-time-title {
+    @include flexbox(start);
+
+    .red-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $red;
+    }
+  }
+
+  .fine-container {
+    padding-top: 20px;
+    .profile-wrapper {
+      @include flexbox(start);
+      padding: 10px 26px;
     }
   }
 }
