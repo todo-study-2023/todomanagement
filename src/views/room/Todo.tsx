@@ -1,5 +1,6 @@
 import React from "react";
 import * as Icon from "react-feather";
+import Button from "../../components/common/Button";
 import Text from "../../components/common/Text";
 
 export default function Todo() {
@@ -28,7 +29,9 @@ export default function Todo() {
         </div>
 
         <div className="add-todo-container">
+          <Button variant="text">
           <Icon.Plus size={20} color="#635fc7" />
+          </Button>
           <Text type="title" size="lg" color="primary" style={{ paddingLeft: "10px" }}>
             ADD TODO
           </Text>

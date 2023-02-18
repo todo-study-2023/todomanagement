@@ -3,7 +3,7 @@
   padding: 0 8px;
   font-weight: 700;
   border-radius: 4px;
-  width: 100%;
+  // width: 100%;
 
   &:disabled {
     cursor: not-allowed;
@@ -16,6 +16,7 @@
   @extend %btn-base;
   color: $white;
   background-color: $blue;
+  width: 100%;
 
   &:hover {
     background-color: $white;
@@ -26,6 +27,7 @@
   @extend %btn-base;
   color: $primary;
   background-color: $black;
+  width: 100%;
 
   &:hover {
     background-color: $gray;
@@ -37,6 +39,7 @@
   color: $blue;
   background-color: $white;
   border: 1px solid $blue;
+  width: 100%;
 
   &:hover {
     background-color: $blue;
