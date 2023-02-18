@@ -1,17 +1,21 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 type TextVariant = "title" | "content";
+
+interface Props {
+  children: React.ReactNode;
+  style?: CSSProperties;
+  type?: TextVariant;
+  size?: Size;
+  color?: Color;
+}
 
 export default function Text({
   children,
   type = "content",
   size = "md",
   color = "white",
-}: {
-  children: React.ReactNode;
-  type?: TextVariant;
-  size?: Size;
-  color?: Color;
-}) {
+  style,
+}: Props) {
   const getTextSize = (type: TextVariant, size: Size) => {
     let textsize;
     if (type === "title") {
@@ -58,14 +62,14 @@ export default function Text({
   return type === "title" ? (
     <h1
       className={`${getTextSize(type, size)} ${getTextColor(color)}`}
-      style={{ margin: "10px 0" }}
+      style={style}
     >
       {children}
     </h1>
   ) : (
     <p
       className={`${getTextSize(type, size)} ${getTextColor(color)}`}
-      style={{ margin: "10px 0" }}
+      style={style}
     >
       {children}
     </p>

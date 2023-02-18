@@ -25,9 +25,39 @@
 }
 
 .user-info {
+  background-color: $grayDark;
+
   padding: 25px 10px;
 
   .user-profile {
     @include flexbox(start);
+  }
+}
+
+.member {
+  background-color: $grayDark;
+  padding: 20px;
+
+  .item-title {
+    @include flexbox(start);
+    // margin: 20px;
+  }
+  .member-container {
+    overflow: auto;
+    height: 300px;
+
+    .member-wrapper {
+      @include flexbox(start);
+      padding-top: 20px;
+
+      .member-content-wrapper {
+        margin-left: 10px;
+
+        .member-text-wrapper {
+          @include flexbox(start);
+          margin-bottom: 8px;
+        }
+      }
+    }
   }
 }
