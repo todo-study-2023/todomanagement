@@ -23,3 +23,11 @@
   background-color: $grayDark;
   padding: 15px 10px;
 }
+
+.user-info {
+  padding: 25px 10px;
+
+  .user-profile {
+    @include flexbox(start);
+  }
+}
