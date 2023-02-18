@@ -5,7 +5,7 @@ export default function Text({
   children,
   type = "content",
   size = "md",
-  color = "black",
+  color = "white",
 }: {
   children: React.ReactNode;
   type?: TextVariant;
@@ -56,11 +56,17 @@ export default function Text({
     return textColorMap.get(color);
   };
   return type === "title" ? (
-    <h1 className={`${getTextSize(type, size)} ${getTextColor(color)}`}>
+    <h1
+      className={`${getTextSize(type, size)} ${getTextColor(color)}`}
+      style={{ margin: "10px 0" }}
+    >
       {children}
     </h1>
   ) : (
-    <p className={`${getTextSize(type, size)} ${getTextColor(color)}`}>
+    <p
+      className={`${getTextSize(type, size)} ${getTextColor(color)}`}
+      style={{ margin: "10px 0" }}
+    >
       {children}
     </p>
   );

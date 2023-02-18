@@ -8,6 +8,7 @@ type Color =
   | "background"
   | "gray"
   | "grayDark"
+  | "grayLight"
   | "line"
   | "lineLight"
   | "white"
