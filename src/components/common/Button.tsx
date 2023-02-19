@@ -1,5 +1,3 @@
-//메모이제이션 (usememo) switch case 구문으로
-
 import React, { useMemo } from "react";
 
 type Variant = "outlined" | "contained" | "text";
