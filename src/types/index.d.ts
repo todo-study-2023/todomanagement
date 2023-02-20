@@ -15,6 +15,11 @@ type Color =
   | "red"
   | "redLight";
 
+enum linkOrImage {
+  "link",
+  "image",
+}
+
 interface Entity<T> {
   data: {
     id: number;
@@ -28,6 +33,37 @@ interface MemberEntity {
   email: string;
   name: string;
   profileImg: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+}
+
+interface FineEntity {
+  date: Date;
+  members: Entity<MemberEntity>[];
+  time: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+}
+
+interface RoomEntity {
+  roomName: string;
+  roomDesc: string;
+  startDate: Date;
+  endDate: Date;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+  enterCode: number;
+}
+
+interface TodoEntity {
+  todoContent: string;
+  complitedAt: Date;
+  authenticationMethod: linkOrImage;
+  authenticationContent: string;
+  author: Entity<MemberEntity>[];
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;
