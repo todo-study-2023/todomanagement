@@ -69,11 +69,3 @@ interface TodoEntity {
   publishedAt: Date;
 }
 
-interface FineEntity {
-  date: Date;
-  members: Entity<MemberEntity>[];
-  time: number;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date;
-}
