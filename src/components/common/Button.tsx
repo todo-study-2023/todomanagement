@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { CSSProperties, useMemo } from "react";
 
 type Variant = "outlined" | "contained" | "text";
 
@@ -7,11 +7,13 @@ export default function Button({
   onClick,
   variant = "contained",
   size = "md",
+  style,
 }: {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   variant?: Variant;
   size?: Size;
+  style?: CSSProperties;
 }) {
   const getVariantStyle = (variant: Variant) => {
     const styleObj = {
@@ -28,6 +30,7 @@ export default function Button({
     <button
       className={`${getVariantStyle(variant)} ${getSizeStyle(size)}`}
       onClick={onClick}
+      style={style}
     >
       {children}
     </button>

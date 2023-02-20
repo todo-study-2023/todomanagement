@@ -15,11 +15,12 @@
 .btn-primary {
   @extend %btn-base;
   color: $white;
-  background-color: $blue;
+  background-color: $primary;
   width: 100%;
+  border-radius: 20px;
 
   &:hover {
-    background-color: $white;
+    background-color: $primaryLight;
   }
 }
 
@@ -28,6 +29,7 @@
   color: $primary;
   background-color: $black;
   width: 100%;
+  border-radius: 20px;
 
   &:hover {
     background-color: $gray;
@@ -36,13 +38,15 @@
 
 .btn-outlined {
   @extend %btn-base;
-  color: $blue;
+  color: $primary;
   background-color: $white;
-  border: 1px solid $blue;
+  border: 1px solid $primary;
   width: 100%;
+  border-radius: 20px;
 
   &:hover {
-    background-color: $blue;
+    background-color: $primary;
+    color: $white;
   }
 }
 
