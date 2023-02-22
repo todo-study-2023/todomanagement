@@ -7,7 +7,7 @@ interface Options {
 }
 
 export function useAPI<T>(fetchFn: () => Promise<Entity<T>>, options: Options) {
-  const [data, setData] = useState<T[]>();
+  const [data, setData] = useState<T[]>([]);
 
   // fetchFn을 호출해서 데이터 처리
   const fetchData = async () => {
@@ -15,10 +15,9 @@ export function useAPI<T>(fetchFn: () => Promise<Entity<T>>, options: Options) {
 
     setData(
       res.data.map((d) => {
-        return d.attributes;
+        return { id: d.id, ...d.attributes };
       })
     );
-
   };
 
   useEffect(() => {
@@ -32,4 +31,3 @@ export function useAPI<T>(fetchFn: () => Promise<Entity<T>>, options: Options) {
     data,
   };
 }
-    
