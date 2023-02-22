@@ -3,6 +3,7 @@ import "./App.scss";
 import Button from "./components/common/Button";
 import Text from "./components/common/Text";
 import { useAPI } from "./hooks/useAPI";
+import Router from "./router";
 import api from "./services/api";
 import {
   createFine,
@@ -68,6 +69,7 @@ function App() {
   // };
 
   return <> {/* <Room />{" "} */}</>;
+
 }
 
 export default App;
