@@ -14,8 +14,16 @@ export const createFine = async (newFine: FineEntity) => {
   });
   return res.data;
 };
+export const updateFine = async (newFine: FineEntity, id: number) => {
+  const res: AxiosResponse<Entity<FineEntity>> = await api.put(`/fines/${id}`, {
+    data: newFine,
+  });
+  return res.data;
+};
 
 export const deleteFine = async (id: number) => {
-  const res: AxiosResponse<Entity<FineEntity>> = await api.delete(`/fines/${id}`);
+  const res: AxiosResponse<Entity<FineEntity>> = await api.delete(
+    `/fines/${id}`
+  );
   return res.data;
 };

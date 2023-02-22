@@ -15,7 +15,16 @@ export const createRoom = async (newRoom: RoomEntity) => {
   return res.data;
 };
 
+export const updateRoom = async (newRoom: RoomEntity, id: number) => {
+  const res: AxiosResponse<Entity<RoomEntity>> = await api.put(`/rooms/${id}`, {
+    data: newRoom,
+  });
+  return res.data;
+};
+
 export const deleteRoom = async (id: number) => {
-  const res: AxiosResponse<Entity<RoomEntity>> = await api.post(`/rooms/${id}`);
+  const res: AxiosResponse<Entity<RoomEntity>> = await api.delete(
+    `/rooms/${id}`
+  );
   return res.data;
 };

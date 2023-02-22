@@ -5,7 +5,7 @@ export const fetchMember = async () => {
   const res: AxiosResponse<Entity<MemberEntity>> = await api.get(
     "/members?populate=*"
   );
-  console.log("fetchMember", res);
+  // console.log("fetchMember", res);
   return res.data;
 };
 
