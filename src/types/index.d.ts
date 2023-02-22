@@ -29,6 +29,7 @@ interface Entity<T> {
 }
 
 interface MemberEntity {
+  id?: number;
   memberId: string;
   email: string;
   name: string;
@@ -61,11 +62,10 @@ interface RoomEntity {
 interface TodoEntity {
   todoContent: string;
   complitedAt: Date;
-  authenticationMethod: linkOrImage;
+  authenticationMethod: string; //수정필요
   authenticationContent: string;
-  author: Entity<MemberEntity>[];
+  author?: Entity<MemberEntity>[];
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;
 }
-
