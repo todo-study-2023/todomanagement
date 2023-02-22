@@ -5,7 +5,12 @@ import Text from "./components/common/Text";
 import { useAPI } from "./hooks/useAPI";
 import api from "./services/api";
 import { fetchFine } from "./services/api/fine";
-import { createMember, deleteMember, fetchMember, updateMember } from "./services/api/member";
+import {
+  createMember,
+  deleteMember,
+  fetchMember,
+  updateMember,
+} from "./services/api/member";
 import { fetchRoom } from "./services/api/room";
 import { createTodo, deleteTodo, fetchTodo } from "./services/api/todo";
 import Room from "./views/room/Room";
@@ -17,7 +22,7 @@ function App() {
   const { data: todo } = useAPI<TodoEntity>(fetchTodo, { isFetch: true });
 
   const newMember = {
-    memberId: "수정슬기",
+    memberId: "수정슬기222",
     email: "seulgiiii@naver.com",
     name: "슬기기",
     profileImg:
@@ -45,10 +50,12 @@ function App() {
     // console.log("todo", todo);
     // createMember(newMember);
     // updateMember(newMember, (member as MemberEntity[])[0].id as number);
-    updateMember(newMember, member[0].id as number)
-    createTodo(newTodo);
+    if (member.length > 0) {
+      updateMember(newMember, member[2].id as number);
+    }
+    // createTodo(newTodo);
     // deleteTodo();
-  }, []);
+  }, [member]);
 
   // createMember(newMember);
 
