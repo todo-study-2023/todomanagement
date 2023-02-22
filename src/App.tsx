@@ -3,6 +3,7 @@ import "./App.scss";
 import Button from "./components/common/Button";
 import Text from "./components/common/Text";
 import { useAPI } from "./hooks/useAPI";
+import Router from "./router";
 import api from "./services/api";
 import { fetchFine } from "./services/api/fine";
 import { fetchMember } from "./services/api/member";
@@ -21,7 +22,11 @@ function App() {
     console.log("fine", fine);
     console.log("todo", todo);
   }, [member]);
-  return <>{/* <Room /> */}</>;
+  return (
+    <>
+      <Router />
+    </>
+  );
 }
 
 export default App;
