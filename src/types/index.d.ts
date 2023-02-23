@@ -56,10 +56,11 @@ interface RoomEntity {
 }
 
 interface TodoEntity {
+  id?: number;
   todoContent: string;
-  complitedAt: Date;
-  authenticationMethod: string;
-  authenticationContent: string;
+  complitedAt?: Date;
+  authenticationMethod?: string;
+  authenticationContent?: string;
   author?: Entity<MemberEntity> | number;
   createdAt?: Date;
   updatedAt?: Date;

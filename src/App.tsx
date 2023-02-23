@@ -67,7 +67,7 @@ function App() {
   //   time: 12,
   // };
 
-  return <> {/* <Room />{" "} */}</>;
+  return <> <Room /></>;
 }
 
 export default App;
