@@ -2,6 +2,7 @@ import React from "react";
 import Text from "../../components/common/Text";
 import * as Icon from "react-feather";
 import ProfileIcon from "../../components/common/ProfileIcon";
+import Title from "../../components/common/Title";
 
 export default function Fine() {
   return (
@@ -13,32 +14,19 @@ export default function Fine() {
         </Text>
       </div>
       <div className="fine-container">
-        <div className="fine-time-title">
-          <div className="red-dot"></div>
-          <Text style={{ marginLeft: "10px" }} size="sm" type="title">
-            9시
-          </Text>
-        </div>
+        <Title titleName="fine" children={"9시"} />
         <div className="profile-wrapper">
           <ProfileIcon size="xs" />
           <ProfileIcon size="xs" />
         </div>
-        <div className="fine-time-title">
-          <div className="red-dot"></div>
-          <Text style={{ marginLeft: "10px" }} size="sm" type="title">
-            12시
-          </Text>
-        </div>
+        <Title titleName="fine" children={"12시"} />
+
         <div className="profile-wrapper">
           <ProfileIcon size="xs" />
           <ProfileIcon size="xs" />
         </div>
-        <div className="fine-time-title">
-          <div className="red-dot"></div>
-          <Text style={{ marginLeft: "10px" }} size="sm" type="title">
-            18시
-          </Text>
-        </div>
+        <Title titleName="fine" children={"18시"} />
+
         <div className="profile-wrapper">
           <ProfileIcon size="xs" />
           <ProfileIcon size="xs" />

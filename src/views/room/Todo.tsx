@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as Icon from "react-feather";
 import Button from "../../components/common/Button";
 import Text from "../../components/common/Text";
+import Title from "../../components/common/Title";
+import { useAPI } from "../../hooks/useAPI";
+import { fetchTodo } from "../../services/api/todo";
 
 export default function Todo() {
+  const { data: todo } = useAPI<TodoEntity>(fetchTodo, { isFetch: true });
+
   return (
     <div className="item todo">
-      <div className="todo-title">
-        <div className="blue-dot"></div>
-        <Text type="title" style={{ paddingLeft: "10px" }}>
-          TODO
-        </Text>
-        <Text type="title" style={{ paddingLeft: "10px" }}>
-          (4)
-        </Text>
-      </div>
+      <Title titleName="todo" children={5} />
 
       <div className="todo-content-layout-container">
         <div className="todo-content-container">
@@ -30,9 +27,14 @@ export default function Todo() {
 
         <div className="add-todo-container">
           <Button variant="text">
-          <Icon.Plus size={20} color="#635fc7" />
+            <Icon.Plus size={20} color="#635fc7" />
           </Button>
-          <Text type="title" size="lg" color="primary" style={{ paddingLeft: "10px" }}>
+          <Text
+            type="title"
+            size="lg"
+            color="primary"
+            style={{ paddingLeft: "10px" }}
+          >
             ADD TODO
           </Text>
         </div>

@@ -71,17 +71,6 @@
   padding: 20px;
   box-sizing: border-box;
 
-  .fine-time-title {
-    @include flexbox(start);
-
-    .red-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: $red;
-    }
-  }
-
   .fine-container {
     padding-top: 20px;
     .profile-wrapper {
@@ -93,17 +82,6 @@
 
 .todo {
   padding: 20px;
-
-  .todo-title {
-    @include flexbox(start);
-
-    .blue-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: $blue;
-    }
-  }
 
   .todo-content-layout-container {
     height: 100%;
@@ -142,16 +120,6 @@
   //TODO: 미디어쿼리 데스크탑 조정필요
   padding: 20px;
   overflow-y: scroll;
-  .done-title {
-    @include flexbox(start);
-
-    .primary-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: $primary;
-    }
-  }
 
   .card-wrapper {
     @include flexbox(start);
