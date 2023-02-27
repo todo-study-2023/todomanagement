@@ -1,17 +1,24 @@
 import React from "react";
 import Text from "../../components/common/Text";
+import { useAPI } from "../../hooks/useAPI";
+import { fetchRoom } from "../../services/api/room";
 
-export default function StudyInfo() {
+interface Props {}
+
+export default function StudyInfo({}: Props) {
+  const { data: room } = useAPI<RoomEntity>(fetchRoom, { isFetch: true });
+  
   return (
     <div className="item study-info">
       <Text style={{ margin: "10px 0" }} size="sm" type="title" color="gray">
-        23.01.31 ~ 23.02.28
+        {/* TODO : room[0] 이걸 특정을 어떻게하지 ?  */}
+        {room.length > 0 && `${room[0].startDate}~ ${room[0].endDate}`}
       </Text>
       <Text style={{ margin: "10px 0" }} size="xxl" type="title">
-        루틴 스터디
+      {room.length > 0 && `${room[0].roomName}`}
       </Text>
       <Text style={{ margin: "10px 0" }} color="gray">
-        게으름을 벗어나기 위해 다같이 성장하기 위해 함께하는 스터터
+      {room.length > 0 && `${room[0].roomDesc}`}
       </Text>
     </div>
   );

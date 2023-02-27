@@ -61,6 +61,7 @@ interface FineEntity {
 }
 
 interface RoomEntity {
+  id?: number;
   roomName: string;
   roomDesc: string;
   startDate: Date;
