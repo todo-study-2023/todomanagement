@@ -19,9 +19,13 @@ export default function Member({}) {
       <div className="member">
         {member.map((m) => {
           return (
-            <div className="member-container">
+            <div className="member-container" key={m.id}>
               <div className="member-wrapper">
-                <ProfileIcon size="sm" />
+                <ProfileIcon
+                  profileImg={m.profileImg}
+                  name={m.name}
+                  size="sm"
+                />
                 <div className="member-content-wrapper">
                   <div className="member-text-wrapper">
                     <Text>{m.name}</Text>
@@ -31,7 +35,7 @@ export default function Member({}) {
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </div>

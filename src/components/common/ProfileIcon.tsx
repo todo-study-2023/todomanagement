@@ -1,11 +1,17 @@
 import React from "react";
 
-export default function ProfileIcon({ size }: { size?: Size }) {
+interface Props {
+  size?: Size;
+  profileImg?: string;
+  name?: string;
+}
+
+export default function ProfileIcon({ size, profileImg, name }: Props) {
   return size === "xs" ? (
-    <div className="profile-xs-icon"></div>
+    <img src={profileImg} alt={name} className="profile-xs-icon"></img>
   ) : size === "sm" ? (
-    <div className="profile-sm-icon"></div>
+    <img src={profileImg} alt={name} className="profile-sm-icon"></img>
   ) : (
-    <div className="profile-lg-icon"></div>
+    <img src={profileImg} alt={name} className="profile-lg-icon"></img>
   );
 }
