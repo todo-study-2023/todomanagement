@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Button from "./components/common/Button";
 import Text from "./components/common/Text";
@@ -32,9 +32,26 @@ import Room from "./views/room/Room";
 
 function App() {
   const { data: member } = useAPI<MemberEntity>(fetchMember, { isFetch: true });
-  const { data: room } = useAPI<RoomEntity>(fetchRoom, { isFetch: true });
-  const { data: fine } = useAPI<FineEntity>(fetchFine, { isFetch: true });
-  const { data: todo } = useAPI<TodoEntity>(fetchTodo, { isFetch: true });
+  // const { data: room } = useAPI<RoomEntity>(fetchRoom, { isFetch: true });
+  // const { data: fine } = useAPI<FineEntity>(fetchFine, { isFetch: true });
+  // const { data: todo } = useAPI<TodoEntity>(fetchTodo, { isFetch: true });
+
+  // const [member, setMember] = useState<MemberEntity[]>([]);
+
+  // const fetchData = async () => {
+  //   const res = await fetchMember();
+  //   setMember(
+  //     res.data.map((d) => {
+  //       return { id: d.id, ...d.attributes };
+  //     })
+  //   );
+  // };
+
+  // console.log(member);
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   // const newMember = {
   //   memberId: "수정슬기222",
@@ -67,7 +84,11 @@ function App() {
   //   time: 12,
   // };
 
-  return <> <Room /></>;
+  return (
+    <>
+      <Room />
+    </>
+  );
 }
 
 export default App;

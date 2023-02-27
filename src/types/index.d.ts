@@ -23,6 +23,23 @@ interface Entity<T> {
   meta: any;
 }
 
+// interface MemberEntity {
+//   data: {
+//     id: number;
+//     attributes: {
+//       id?: number;
+//       memberId: string;
+//       email: string;
+//       name: string;
+//       profileImg: string;
+//       createdAt?: Date;
+//       updatedAt?: Date;
+//       publishedAt?: Date;
+//     };
+//   };
+//   meta: any;
+// }
+
 interface MemberEntity {
   id?: number;
   memberId: string;
@@ -66,3 +83,8 @@ interface TodoEntity {
   updatedAt?: Date;
   publishedAt?: Date;
 }
+
+type DoneData = Pick<
+  TodoEntity,
+  "complitedAt" | "todoContent" | "authenticationContent"
+>;

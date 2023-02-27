@@ -29,5 +29,6 @@ export function useAPI<T>(fetchFn: () => Promise<Entity<T>>, options: Options) {
 
   return {
     data,
+    fetchData,
   };
 }

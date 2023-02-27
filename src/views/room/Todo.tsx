@@ -1,4 +1,10 @@
-import React, { useEffect, useState, KeyboardEvent, ChangeEvent } from "react";
+import React, {
+  useEffect,
+  useState,
+  KeyboardEvent,
+  ChangeEvent,
+  FormEvent,
+} from "react";
 import * as Icon from "react-feather";
 import Button from "../../components/common/Button";
 import Text from "../../components/common/Text";
@@ -8,23 +14,26 @@ import { createTodo, fetchTodo } from "../../services/api/todo";
 import TodoContent from "./TodoContent";
 
 export default function Todo() {
-  const { data: todo } = useAPI<TodoEntity>(fetchTodo, { isFetch: true });
+  const { data: todo, fetchData } = useAPI<TodoEntity>(fetchTodo, {
+    isFetch: true,
+  });
   const [todoContent, setTodoContent] = useState("");
   const [isAdd, setIsAdd] = useState(false);
 
   const newTodo = {
     todoContent: todoContent,
-    author: 24, 
+    author: 24,
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTodoContent(e.target.value);
   };
-  const onSubmit = (e: any) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createTodo(newTodo);
+    await createTodo(newTodo);
     setTodoContent("");
     setIsAdd(false);
+    fetchData();
   };
 
   return (
@@ -39,6 +48,7 @@ export default function Todo() {
                 key={`${t.publishedAt}+1`}
                 content={t.todoContent}
                 id={t.id!}
+                fetchData={fetchData}
               />
             );
           })}
@@ -50,6 +60,7 @@ export default function Todo() {
               type="text"
               placeholder="할 일을 입력 후, Enter 를 누르세요"
               onChange={onChange}
+              autoFocus={true}
               // value={todoContent}
             />
           </form>
