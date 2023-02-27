@@ -76,7 +76,7 @@ interface RoomEntity {
 interface TodoEntity {
   id?: number;
   todoContent: string;
-  complitedAt?: Date;
+  complitedAt?: Date | string;
   authenticationMethod?: string;
   authenticationContent?: string;
   author?: Entity<MemberEntity> | number;
@@ -89,3 +89,5 @@ type DoneData = Pick<
   TodoEntity,
   "complitedAt" | "todoContent" | "authenticationContent"
 >;
+
+type FineData = Pick<FineEntity, "members">;
