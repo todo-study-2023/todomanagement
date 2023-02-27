@@ -32,7 +32,6 @@ import {
 import Room from "./views/room/Room";
 
 function App() {
-  const { data: member } = useAPI<MemberEntity>(fetchMember, { isFetch: true });
   // const { data: room } = useAPI<RoomEntity>(fetchRoom, { isFetch: true });
   // const { data: fine } = useAPI<FineEntity>(fetchFine, { isFetch: true });
   // const { data: todo } = useAPI<TodoEntity>(fetchTodo, { isFetch: true });
