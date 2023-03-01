@@ -46,7 +46,7 @@ export default function Todo() {
             return (
               <TodoContent
                 key={`${t.publishedAt}+1`}
-                content={t.todoContent}
+                content={t.todoContent!}
                 id={t.id!}
                 fetchData={fetchData}
               />

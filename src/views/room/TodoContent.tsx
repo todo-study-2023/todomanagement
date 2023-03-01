@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import * as Icon from "react-feather";
+import Modal from "../../components/common/Modal";
 import Text from "../../components/common/Text";
 import { deleteTodo, updateTodo } from "../../services/api/todo";
 
@@ -19,7 +20,14 @@ export default function TodoContent({ content, id, fetchData }: Props) {
   const formRef = useRef(null);
   const [isEdit, setIsEdit] = useState(false);
   const [editTodoContent, setEditTodoContent] = useState(content);
-  const editTodo = {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const clickModal = () => {
+    setIsOpenModal(true);
+  };
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+  const editTodo: TodoEntity = {
     todoContent: editTodoContent,
     author: 24, //TODO: 로그인한 사용자의 id 값을 넣어줘야함
   };
@@ -27,11 +35,17 @@ export default function TodoContent({ content, id, fetchData }: Props) {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEditTodoContent(e.target.value);
   };
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("submit");
+  const onSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+    todo: TodoEntity
+  ) => {
     e.preventDefault();
-    await updateTodo(editTodo, id);
-    setIsEdit(false);
+    await updateTodo(todo, id);
+    if (todo === editTodo) {
+      setIsEdit(false);
+    } else {
+      setIsOpenModal(false);
+    }
     updateContent();
   };
   const updateContent = useCallback(() => {
@@ -50,30 +64,46 @@ export default function TodoContent({ content, id, fetchData }: Props) {
   };
 
   return (
-    <div className="todo-content-container">
-      <div className="todo-content-wrapper">
-        <Icon.CheckCircle size={18} color="white" />
-        {isEdit ? (
-          <form ref={formRef} onSubmit={onSubmit}>
-            <input type="text" defaultValue={content} onChange={onChange} />
-          </form>
-        ) : (
-          <Text style={{ paddingLeft: "10px" }}>{content}</Text>
-        )}
+    <>
+      <div className="todo-content-container">
+        <div className="todo-content-wrapper">
+          <button
+            onClick={() => {
+              clickModal();
+            }}
+          >
+            <Icon.CheckCircle size={18} color="white" />
+          </button>
+
+          {isEdit ? (
+            <form
+              ref={formRef}
+              onSubmit={(e: React.FormEvent<HTMLFormElement>) =>
+                onSubmit(e, editTodo)
+              }
+            >
+              <input type="text" defaultValue={content} onChange={onChange} />
+            </form>
+          ) : (
+            <Text style={{ paddingLeft: "10px" }}>{content}</Text>
+          )}
+        </div>
+
+        <div className="todo-icon-wrapper">
+          <button onClick={() => editFunc()}>
+            <Icon.Edit2 size={18} color="white" />
+          </button>
+          <button
+            onClick={() => {
+              deleteTodo(id as number);
+              fetchData();
+            }}
+          >
+            <Icon.Trash size={18} color="white" />
+          </button>
+        </div>
       </div>
-      <div className="todo-icon-wrapper">
-        <button onClick={() => editFunc()}>
-          <Icon.Edit2 size={18} color="white" />
-        </button>
-        <button
-          onClick={() => {
-            deleteTodo(id as number);
-            fetchData();
-          }}
-        >
-          <Icon.Trash size={18} color="white" />
-        </button>
-      </div>
-    </div>
+      {isOpenModal && <Modal variant="certification" onSubmit={onSubmit} closeModal={closeModal} />}
+    </>
   );
 }

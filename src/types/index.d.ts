@@ -75,7 +75,7 @@ interface RoomEntity {
 
 interface TodoEntity {
   id?: number;
-  todoContent: string;
+  todoContent?: string;
   complitedAt?: Date | string;
   authenticationMethod?: string;
   authenticationContent?: string;
