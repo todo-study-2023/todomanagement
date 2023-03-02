@@ -23,6 +23,23 @@ interface Entity<T> {
   meta: any;
 }
 
+// interface MemberEntity {
+//   data: {
+//     id: number;
+//     attributes: {
+//       id?: number;
+//       memberId: string;
+//       email: string;
+//       name: string;
+//       profileImg: string;
+//       createdAt?: Date;
+//       updatedAt?: Date;
+//       publishedAt?: Date;
+//     };
+//   };
+//   meta: any;
+// }
+
 interface MemberEntity {
   id?: number;
   memberId: string;
@@ -44,6 +61,7 @@ interface FineEntity {
 }
 
 interface RoomEntity {
+  id?: number;
   roomName: string;
   roomDesc: string;
   startDate: Date;
@@ -56,12 +74,20 @@ interface RoomEntity {
 }
 
 interface TodoEntity {
-  todoContent: string;
-  complitedAt: Date;
-  authenticationMethod: string;
-  authenticationContent: string;
+  id?: number;
+  todoContent?: string;
+  complitedAt?: Date | string;
+  authenticationMethod?: string;
+  authenticationContent?: string;
   author?: Entity<MemberEntity> | number;
   createdAt?: Date;
   updatedAt?: Date;
   publishedAt?: Date;
 }
+
+type DoneData = Pick<
+  TodoEntity,
+  "complitedAt" | "todoContent" | "authenticationContent"
+>;
+
+type FineData = Pick<FineEntity, "members">;

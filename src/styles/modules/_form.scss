@@ -1,8 +1,9 @@
 %form-base {
   @include text-style(16, $primary);
   display: block;
-  height: 40px;
-  padding: 0 16px;
+  // height: 40px;
+  width: 100%;
+  padding: 0px 16px;
   background-color: transparent;
   border: 1px solid $primary;
   border-radius: 4px;

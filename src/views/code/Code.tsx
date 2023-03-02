@@ -8,7 +8,7 @@ export default function Code() {
     <div className="container">
       <div className="code">
         {/* <Button>입장코드</Button> */}
-        <Modal variant="certification" />
+        {/* <Modal  variant="certification" /> */}
       </div>
     </div>
   );
