@@ -15,30 +15,15 @@ type Color =
   | "red"
   | "redLight";
 
-interface Entity<T> {
-  data: {
-    id: number;
-    attributes: T;
-  }[];
-  meta: any;
+interface StrapiWrapper<T> {
+  id: number;
+  attributes: T;
 }
 
-// interface MemberEntity {
-//   data: {
-//     id: number;
-//     attributes: {
-//       id?: number;
-//       memberId: string;
-//       email: string;
-//       name: string;
-//       profileImg: string;
-//       createdAt?: Date;
-//       updatedAt?: Date;
-//       publishedAt?: Date;
-//     };
-//   };
-//   meta: any;
-// }
+interface Entity<T> {
+  data: StrapiWrapper<T>[];
+  meta: any;
+}
 
 interface MemberEntity {
   id?: number;
@@ -53,12 +38,20 @@ interface MemberEntity {
 
 interface FineEntity {
   date: Date;
-  members: Entity<MemberEntity>[] | number | number[];
+  members: Entity<MemberEntity>;
   time: number;
-  createdAt?: Date;
-  updatedAt?: Date;
-  publishedAt?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
 }
+
+type PartialFineEntity = Partial<FineEntity>;
+
+interface FineParam extends PartialFineEntity {
+  members: number[];
+}
+
+
 
 interface RoomEntity {
   id?: number;
@@ -74,15 +67,22 @@ interface RoomEntity {
 }
 
 interface TodoEntity {
-  id?: number;
-  todoContent?: string;
-  complitedAt?: Date | string;
-  authenticationMethod?: string;
-  authenticationContent?: string;
-  author?: Entity<MemberEntity> | number;
-  createdAt?: Date;
-  updatedAt?: Date;
-  publishedAt?: Date;
+  id: number;
+  todoContent: string;
+  complitedAt: string;
+  authenticationMethod: string;
+  authenticationContent: string;
+  author: Entity<MemberEntity>;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+}
+
+type PartialTodoEntity = Partial<TodoEntity>;
+
+interface TodoParam extends PartialTodoEntity {
+  complitedAt?: Date;
+  author?: number;
 }
 
 type DoneData = Pick<
