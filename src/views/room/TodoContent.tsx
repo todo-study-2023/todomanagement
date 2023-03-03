@@ -27,7 +27,7 @@ export default function TodoContent({ content, id, fetchData }: Props) {
   const closeModal = () => {
     setIsOpenModal(false);
   };
-  const editTodo: TodoEntity = {
+  const editTodo: TodoParam = {
     todoContent: editTodoContent,
     author: 24, //TODO: 로그인한 사용자의 id 값을 넣어줘야함
   };
@@ -37,7 +37,7 @@ export default function TodoContent({ content, id, fetchData }: Props) {
   };
   const onSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
-    todo: TodoEntity
+    todo: TodoParam
   ) => {
     e.preventDefault();
     await updateTodo(todo, id);
