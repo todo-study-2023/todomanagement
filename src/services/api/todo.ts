@@ -8,14 +8,14 @@ export const fetchTodo = async () => {
   return res.data;
 };
 
-export const createTodo = async (todo: TodoEntity) => {
+export const createTodo = async (todo: TodoParam) => {
   const res: AxiosResponse<Entity<TodoEntity>> = await api.post("/todos", {
     data: todo,
   });
   return res.data;
 };
 
-export const updateTodo = async (todo: TodoEntity, id: number) => {
+export const updateTodo = async (todo: TodoParam, id: number) => {
   const res: AxiosResponse<Entity<TodoEntity>> = await api.put(`/todos/${id}`, {
     data: todo,
   });
@@ -23,6 +23,8 @@ export const updateTodo = async (todo: TodoEntity, id: number) => {
 };
 
 export const deleteTodo = async (id: number) => {
-  const res: AxiosResponse<Entity<TodoEntity>> = await api.delete(`/todos/${id}`);
+  const res: AxiosResponse<Entity<TodoEntity>> = await api.delete(
+    `/todos/${id}`
+  );
   return res.data;
 };
